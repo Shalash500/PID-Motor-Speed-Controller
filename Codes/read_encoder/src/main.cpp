@@ -8,7 +8,7 @@ volatile long encoderCount = 0;
 void readEncoder();
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   pinMode(encoderPinA, INPUT_PULLUP);
   pinMode(encoderPinB, INPUT_PULLUP);
