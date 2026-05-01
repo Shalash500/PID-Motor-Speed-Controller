@@ -12,7 +12,7 @@ void setup() {
 
   pinMode(encoderPinA, INPUT_PULLUP);
   pinMode(encoderPinB, INPUT_PULLUP);
-
+  // Only B is read: A triggered the interrupt (RISING), so its state is always HIGH — no information gained from reading it
   attachInterrupt(digitalPinToInterrupt(encoderPinA), readEncoder, RISING);
 
 }
