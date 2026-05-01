@@ -18,12 +18,13 @@ void setup() {
 }
 
 void loop() {
-  Serial.println(pos);
+  noInterrupts();
+  long current_position = pos;
+  interrupts();
+  Serial.println(current_position);
 }
 
 void readEncoder() {
-  int A = digitalRead(encoderPinA);
-  int B = digitalRead(encoderPinB);
   if (digitalRead(encoderPinB))
     pos++;
   else
