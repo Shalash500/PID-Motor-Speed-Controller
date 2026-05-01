@@ -18,6 +18,7 @@ void setup() {
 }
 
 void loop() {
+  //  atomic read
   noInterrupts();
   long current_position = pos;
   interrupts();
