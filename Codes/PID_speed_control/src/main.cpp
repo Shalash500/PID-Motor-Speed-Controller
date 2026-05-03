@@ -56,7 +56,7 @@ void loop() {
     input.trim();
     float new_setpoint = input.toFloat();
     if (new_setpoint > 0) set_point = new_setpoint;
-}
+  }
 
   //  Reading motor RPM
   unsigned long current_time = millis();
