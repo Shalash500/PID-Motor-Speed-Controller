@@ -11,7 +11,7 @@ const int encoderPinB = 3;  // Channel B
 #define motor_pwm 6
 
 //  Target RPM
-float set_point = 100.0;
+float set_point = 0.0;
 
 //  Measured RPM
 float measured_RPM = 0.0;
@@ -49,6 +49,12 @@ void loop() {
   //  Make motor rotate clock wise
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
+
+  //  Get the desired RPM from serial
+  if (Serial.available() > 0){
+    float new_set_point = Serial.parseFloat();
+    set_point = new_set_point;
+  }
 
   //  Reading motor RPM
   unsigned long current_time = millis();
