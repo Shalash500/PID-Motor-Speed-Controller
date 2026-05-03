@@ -51,10 +51,12 @@ void loop() {
   digitalWrite(in2, LOW);
 
   //  Get the desired RPM from serial
-  if (Serial.available() > 0){
-    float new_set_point = Serial.parseFloat();
-    set_point = new_set_point;
-  }
+  if (Serial.available()) {
+    String input = Serial.readStringUntil('\n');
+    input.trim();
+    float new_setpoint = input.toFloat();
+    if (new_setpoint > 0) set_point = new_setpoint;
+}
 
   //  Reading motor RPM
   unsigned long current_time = millis();
